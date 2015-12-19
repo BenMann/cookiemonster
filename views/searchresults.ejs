@@ -1,0 +1,40 @@
+<% include header %>
+
+  <div id="pagewrap">
+    <div id="header">
+      <form action="/search/" method="post">
+        <input type="search" autofocus="autofocus" name="query" id="query" value="<%= query %>">
+      </form>
+    </div>
+
+    <div id="innerwrap">
+      <div id="content">
+
+  <%
+    packages.forEach(function(package, index) {
+  %>
+
+    <div class="package">
+      <a href="<%= package.url.replace("git://", "https://") %>" class="package">
+        <h2><%= package.name %></h2>
+        <p class="desc">Workers need to provide data so something useful displays here.</p>
+        <div class="created"><%= package.created_at %></div>
+        <div class="owner"><%= package.owner %></div>
+        <div class="stars"><%= package.stars %></div>
+        <div class="updated">21 hours ago</div>
+      </a>
+    </div>
+
+  <%
+    });
+  %>
+
+
+
+      </div> <!-- content end -->
+
+<% include footer %>
+
+
+
+

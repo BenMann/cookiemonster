@@ -9,17 +9,22 @@
 
     <div id="innerwrap">
       <div id="content">
-
+      <div class="package package-info">
+        <div class="packagename">Name</div>
+        <div class="owner">Owner</div>
+        <div class="stars">Stars</div>
+        <div class="updated">Updated</div>
+      </div>
   <%
     packages.forEach(function(package, index) {
   %>
 
-    <div class="package">
+    <div class="package clearfix">
       <a href="<%= package.url.replace("git://", "https://") %>" class="package">
         <h2><%= package.name %></h2>
         <p class="desc">Workers need to provide data so something useful displays here.</p>
-        <div class="created"><%= package.created_at %></div>
-        <div class="owner"><%= package.owner %></div>
+        <!-- <div class="created"><%= package.created_at %></div> -->
+        <div class="owner"><%= package.owner || "Owner.." %></div>
         <div class="stars"><%= package.stars %></div>
         <div class="updated">21 hours ago</div>
       </a>

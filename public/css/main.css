@@ -6,6 +6,12 @@
 html,
 body{
   font-family: "Arial", sans-serif;
+  background-color: #eee;
+}
+
+a,
+a:focus{
+  outline: none;
 }
 
 #pagewrap{
@@ -13,8 +19,12 @@ body{
 }
 
 #innerwrap{
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-sjhadow: 0 2px 2px #ccc;
+  border-radius: 4px;
 }
 
 #header{
@@ -23,7 +33,7 @@ body{
 }
 
 #header form{
-  width: 1100px;
+  width: 900px;
   margin: 0 auto;
   padding-top: 200px;
 }
@@ -31,7 +41,7 @@ body{
 #header input{
   padding: 5px;
   min-height: 40px;
-  min-width: 90%;
+  width: 100%;
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 18px;
@@ -55,16 +65,46 @@ body{
   color: #333;
 }
 
-.package h2:before{
-  content: "#";
-  position: absolute;
-  margin: 2px 0 0 -20px;
-  color: #ccc;
+.package h2{
+  font-weight: normal;
+  margin: 0 0 10px 0;
+  color: #008ec4;
 }
 
 .package:hover h2{
   text-decoration: underline;
 }
+
+.package .desc,
+.package .created,
+.package .owner,
+.package .stars,
+.package .updated,
+.package .packagename{
+  display: inline-block;
+  margin: 0 25px;
+}
+
+
+.package .desc,
+.package .packagename{
+  margin: 0;
+  min-width: 550px;
+}
+
+.package.package-info{
+  margin: 0;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #CECECE;
+}
+
+.package.package-info > div{
+  color: #008ec4;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
 
 #footer{
 

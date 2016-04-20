@@ -9,9 +9,9 @@ var express = require('express'),
 * Displays main search site.
 * =========================================== */
 router.get('/', function(req, res, next) {
-  api.getRegistryInfo(function(err, regInfo){
+  api.getRegistryInfo(function(err, registryVersion){
     res.render('index', {
-      registryVersion: regInfo.version
+      registryVersion: registryVersion
     });
   });
 });

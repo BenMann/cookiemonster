@@ -1,48 +1,25 @@
 var request = require('request'),
     config = require('../config/config'),
-    api = config.apiPath;
+    api = config.apiPath,
+    model = require('../model/model.js');
+
 
 /* =============================================
 * GET general registry info
 * =========================================== */
 exports.getRegistryInfo = function(callback) {
-  doRequest(api, function(err, res){
-    if(err){
-      console.log(err);
-    }
-    callback(null, res);
+  model.get("registryInfo").then(function(response) {
+    callback(null, response.json.registryInfo.name);
   });
 };
 
-
-exports.searchPackage = function(query, callback) {
-  var searchURL = api+'packages/search/'+query;
-
-  doRequest(searchURL, function(err, res){
-    if(err){
-      console.log(err);
-    }
-    callback(null, res);
-  });
-};
-
-
-
-// TODO: put them somewhere else..
 
 /* =============================================
-* HELPER FUNCTIONS
+* POST search package
 * =========================================== */
-
-var request = request.defaults({json: true})
-
-function doRequest(url, callback){
-  request(url, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      if (typeof body !== 'object') {
-        console.log('Response of request to ' + api + ' is not valid json');
-      }
-      callback(null, body);
-    };
+exports.searchPackage = function(packageName, callback) {
+  model.get(["packages", packageName]).then(function(response) {
+    console.log(response);
+    callback(null, response.json.registryInfo.name);
   });
 };

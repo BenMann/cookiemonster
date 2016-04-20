@@ -4,7 +4,7 @@ config.port = 3001;
 config.defaultSize = 30;
 config.isPublic = true;
 
-config.apiPath = 'http://localhost:3000/';
+config.apiPath = 'http://packreg.com/model.json';
 
 
 module.exports = config;

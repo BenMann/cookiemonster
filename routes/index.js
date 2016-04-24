@@ -23,14 +23,20 @@ router.get('/', function(req, res, next) {
 * =========================================== */
 router.post('/search', function(req, res, next) {
 
-  api.searchPackage(req.body.query, function(err, result){
+  api.searchPackage(req.body.query, function(err, packages){
     if(err){
       console.log(err);
     }
 
+    var packArray = [];
+
+    for(var i in packages){
+      packArray.push(packages[i]);
+    }
+
     res.render('searchresults', {
       query: req.body.query,
-      packages: result
+      packages: packArray
     });
 
 

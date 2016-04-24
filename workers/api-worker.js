@@ -3,6 +3,7 @@ var request = require('request'),
     api = config.apiPath,
     model = require('../model/model.js');
 
+var jlog = function(x) { console.log(JSON.stringify(x, null, 3)); };
 
 /* =============================================
 * GET general registry info
@@ -19,7 +20,7 @@ exports.getRegistryInfo = function(callback) {
 * =========================================== */
 exports.searchPackage = function(packageName, callback) {
   model.get(["packages", packageName]).then(function(response) {
-    console.log(response);
-    callback(null, response.json.registryInfo.name);
+    var packages = response.json.packages[packageName];
+    callback(null, packages);
   });
 };
